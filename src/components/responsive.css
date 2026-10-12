@@ -1,0 +1,216 @@
+/* ============================================================
+   responsive.css  -  American Ventura Corporation
+   Import this AFTER your main css file (e.g. in main.jsx):
+     import './index.css'
+     import './responsive.css'
+   Desktop is untouched; everything here is inside media queries.
+   ============================================================ */
+
+/* ---------- Global safety ---------- */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html, body { overflow-x: hidden; max-width: 100%; }
+img { max-width: 100%; height: auto; }
+.wrap { width: 100%; box-sizing: border-box; }
+section[id] { scroll-margin-top: 72px; } /* anchor links don't hide under sticky nav */
+
+/* ---------- Tablet (<= 900px) ---------- */
+@media (max-width: 900px) {
+  .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+
+  .sec { padding-top: 64px !important; padding-bottom: 64px !important; }
+  h2 { font-size: clamp(26px, 5vw, 34px) !important; }
+  .lead { font-size: 1rem !important; line-height: 1.7; }
+
+  /* Hero: stack text + logo */
+  .hero .hr, .hr {
+    flex-direction: column-reverse !important;
+    text-align: center;
+    gap: 28px !important;
+    padding-top: 90px !important;
+    padding-bottom: 56px !important;
+  }
+  .ht { max-width: 100% !important; }
+  .hl { width: min(220px, 55vw) !important; margin: 0 auto; }
+  .cta { justify-content: center; }
+
+  /* Grids -> 2 columns */
+  .cards, .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ---------- Mobile (<= 720px) ---------- */
+@media (max-width: 720px) {
+  /* ----- Nav ----- */
+  nav .wrap {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    position: relative;
+  }
+  nav .logo { font-size: 14px !important; gap: 8px; letter-spacing: .5px; }
+  nav .logo img { height: 32px !important; width: auto; }
+
+  .burger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;       /* proper tap target */
+    font-size: 24px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .links {
+    display: none !important;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .12);
+    padding: 8px 0;
+    z-index: 999;
+  }
+  .links.open { display: flex !important; }
+  .links a {
+    padding: 14px 24px !important;
+    margin: 0 !important;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+  }
+  .links a:last-child { border-bottom: 0; }
+
+  /* ----- Hero ----- */
+  .hero { min-height: auto !important; }
+  .hero h1 { font-size: clamp(30px, 9vw, 40px) !important; line-height: 1.15 !important; }
+  .hero p { font-size: 1rem !important; }
+  .tag { font-size: 12px !important; }
+  .cta { flex-direction: column; gap: 12px !important; width: 100%; }
+  .cta .btn { width: 100%; text-align: center; box-sizing: border-box; padding: 14px 20px !important; }
+
+  /* ----- Marquee ----- */
+  .marquee .mi { font-size: 13px !important; gap: 8px; padding: 0 18px !important; }
+  .marquee .mi img { height: 22px !important; width: auto; }
+
+  /* ----- Sections ----- */
+  .sec { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .cards, .grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* ----- Ventures tabs: scrollable row, no wrapping mess ----- */
+  .tabs {
+    display: flex !important;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 0 0 auto; white-space: nowrap; padding: 10px 18px !important; }
+
+  /* ----- Process timeline ----- */
+  .tl { padding-left: 0 !important; }
+  .step { gap: 14px !important; align-items: flex-start; }
+  .step b { flex: 0 0 38px; width: 38px !important; height: 38px !important; font-size: 15px; }
+  .step h3 { font-size: 18px; }
+
+  /* ----- Testimonials ----- */
+  .quote { font-size: clamp(18px, 5.2vw, 22px) !important; line-height: 1.5 !important; min-height: 150px; padding: 0 4px; }
+  .dots i { width: 12px; height: 12px; } /* easier to tap */
+
+  /* ----- Contact form ----- */
+  form { width: 100% !important; max-width: 100% !important; }
+  form input, form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px !important;   /* stops iOS zoom-on-focus */
+    padding: 14px !important;
+  }
+  form .btn { width: 100%; padding: 14px 20px !important; }
+  .ok { font-size: 14px; }
+
+  /* ----- Footer ----- */
+  footer { padding: 32px 20px !important; font-size: 13px; line-height: 1.6; }
+  footer .fl { height: 44px !important; width: auto; margin-bottom: 8px; }
+}
+
+/* ---------- Small phones (<= 380px) ---------- */
+@media (max-width: 380px) {
+  .wrap { padding-left: 16px !important; padding-right: 16px !important; }
+  nav .logo { font-size: 12px !important; }
+  .hero h1 { font-size: 28px !important; }
+}
+
+/* ---------- HERO FIX: side padding + logo size (phones & tablets) ---------- */
+@media (max-width: 900px) {
+  header.hero .wrap.in.hr,
+  header.hero .hr,
+  .hero > .wrap {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    justify-content: center !important;
+    grid-template-columns: 1fr !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    text-align: center !important;
+  }
+
+  header.hero .ht {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  header.hero .ht h1,
+  header.hero .ht p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    overflow-wrap: break-word;
+  }
+
+  /* big logo -> small, centered */
+  header.hero img.hl,
+  .hero .hl {
+    display: block !important;
+    width: 120px !important;
+    max-width: 38vw !important;
+    height: auto !important;
+    max-height: 120px !important;
+    margin: 0 auto !important;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  header.hero .wrap.in.hr,
+  header.hero .hr,
+  .hero > .wrap {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  header.hero img.hl,
+  .hero .hl {
+    width: 96px !important;
+    max-height: 96px !important;
+  }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee .track, .marquee .group { animation: none !important; }
+}
