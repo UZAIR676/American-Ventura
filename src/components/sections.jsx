@@ -159,7 +159,7 @@ export function Voices() {
   )
 }
 
-const FORM_EMAIL = 'uzairranamuhammad7@gmail.com' // form ke messages yahan aayenge
+const FORM_EMAIL = 'info@americanventura.com' // form ke messages yahan aayenge
 const SHOW_EMAIL = 'info@americanventura.com'     // website par ye email dikhegi
 
 export function Contact() {
