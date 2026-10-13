@@ -72,6 +72,7 @@ footer{background:#040d24;color:#9fb0dd;text-align:center;padding:28px 20px;bord
 .mi img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 2px #c9a24b}
 @keyframes run{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media (prefers-reduced-motion:reduce){.track{animation:none}.hl{animation:none}}
+.hero{position:relative;min-height:100vh;min-height:100svh; /* ... baqi same ... */}
 
 /* ================= RESPONSIVE ================= */
 
